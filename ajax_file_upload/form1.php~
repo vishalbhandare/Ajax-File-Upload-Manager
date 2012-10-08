@@ -1,0 +1,30 @@
+<html>
+<head>
+<style type='text/css'>
+.filemgt{
+width:400px;top:0px;right:0px;position:absolute;min-height:400px;
+}
+.filemgt table td{
+border:1px solid red
+}
+
+</style>
+<script type="text/javascript" src="webroot/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="webroot/js/fileupload.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+ $('#vishal').ajaxfileuploader({SCRIPT:'process.php',ADDAREA:'queuearea',MAXUPLOAD:5})
+
+});
+</script>
+</head>
+<body>
+<form action="fup.cgi" enctype="multipart/form-data" method="POST">
+File to upload: <input type="file" name="upfile" id='vishal'><br>
+Notes about the file: <input type="text" name="note" ><br>
+<br>
+<input type="submit" value="Press"> to upload the file!
+</form>
+</body>
+</html>

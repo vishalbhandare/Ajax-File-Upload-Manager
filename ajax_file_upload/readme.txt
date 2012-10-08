@@ -1,0 +1,48 @@
+Step1:
+  ‌Finalize on your database
+  mine is 
+	$dbhostname = "localhost";
+	$dbname  = "test";
+	$dbusername = "root";
+	$dbpassword = "root";	
+
+  Modify setting in process.php		
+
+Step2: 
+Add following table to your database, you can name anything
+
+CREATE TABLE `users_images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `file_id` varchar(255) DEFAULT NULL,
+  `file_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=latin1
+
+
+Step3:
+Add following plugin to head tag 
+
+<script type="text/javascript" src="webroot/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="webroot/js/fileupload.js"></script>
+
+Step3:
+Add following initiation script to your html
+vishal - is  element id to which this plugin will replace with ajax file uploader 
+<script type="text/javascript">
+
+$(document).ready(function() {
+  $('#vishal').ajaxfileuploader({SCRIPT: 'process.php',VALIDFORMAT:['jpeg','jpg','png','gif'],MAXUPLOAD:7,TABLEHEAD:{name:'name',imgname:'image name',operation:'Operation'}})
+
+});
+</script>
+
+following is plugin option available
+	SCRIPT - name of script going to process uploaded ajax file
+	VALIDFORMAT - formate accepted for validation
+	MAXUPLOAD - Max number of file upload
+	TABLEHEAD - Table head information
+
+You can modify plugin option as required
+
+	 
